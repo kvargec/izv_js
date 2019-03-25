@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="style/stil.css" rel="stylesheet" type="text/css"/>
+        <script src="js/custom.js" type="text/javascript"></script>
+        <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-xs-12 col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-4 col-xs-12">
+                            <div class="alert alert-primary" role="alert">
+                                A simple primary alert—check it out!
+                              </div>
+                        </div>
+                        <div class="col-lg-4 col-xs-12">
+                            <script>
+                                   var a=2;
+                                   document.write(a);
+                                   document.write("<br />"+a+" je super ocjena");
+                                   //
+                                   /*
+                                    * 
+                                    */
+                                   if(a>1){
+                                       console.log("Opa");
+                                   }else{
+                                       console.log("Nije");
+                                   }
+                                   var niz=Array("Ivo","Pero","Marko");
+                                   for(i in niz){
+                                       ispis(niz[i]);
+                                   }
+                                   function ispis(tekst){
+                                       document.write("<h3>"+tekst+"</h3>");
+                                   }
+                            </script>
+                        </div>
+                        <div class="col-lg-4 col-xs-12">
+                            <button class="btn btn-danger" onclick="ubaci('Ludnica tekst','ovdje');">Klikni me</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xs-12">
+                        <div id="ovdje">Zamjena</div>
+                    </div>
+                    <div class="col-lg-4 col-xs-12">
+                        <input type="text" id="unos" />
+                        <a href="#" class="btn btn-warning" onclick="preokreni('unos')">Preokreni</a>
+                        <div id="rezultat"></div>
+                    </div>
+                    <div class="col-lg-4 col-xs-12">
+                        <script>
+                           // document.write(odkraja("Brojke",2));
+                            document.write(odkraja("Brojke",-3));
+                           
+                        </script>
+                    </div>
+
+                </div>
+                <div class="col-md-4  col-xs-12 col-lg-6">
+                    <script>
+                        var niz=Array();
+                        niz.push(1);
+                        niz.push(2);
+                        niz.push(3);
+                        for(var el of niz){
+                            document.write(el);
+                        }
+                        for(el in niz){
+                            document.write(niz[el]);
+                        }
+                        for(var i=0;i<niz.length;i++){
+                            document.write(niz[i]);
+                        }
+                        let result = niz.map(function(item, index, array) {
+                                return item='<option value="'+index+'">'+item+'</option>';
+                            })
+                        console.log(result);
+                        niz2=Array();
+                        niz2=niz;
+                        console.log(niz2);
+                        niz.pop();
+                        console.log(niz2);
+                    </script>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>

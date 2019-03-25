@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="style/stil.css" rel="stylesheet" type="text/css"/>
+        <script src="js/custom.js" type="text/javascript"></script>
+        <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <script>
+                    $(document).ready(function(){
+            $("#napravi").on('click', function(){
+            let tekst = $("#tekst").val();
+                    let odabir = $("#vrsta").val();
+                    console.log(odabir);
+                    let izlaz = "";
+                    switch (odabir){
+            case 'h1':
+                    izlaz = '<h1>' + tekst + '</h1>';
+                    break;
+                    case 'h2':
+                    izlaz = '<h2>' + tekst + '</h2>';
+                    break;
+                    case 'h3':
+                    izlaz = '<h3>' + tekst + '</h3>';
+                    break;
+            };
+                    $("#kontejner").append(izlaz);
+                    $("#obrisi").on('click', function(){
+            let deca = $("#kontejner").children();
+                    deca.each(function(){
+                    $(this).remove();
+                            console.log($(this).html());
+                    })
+                    $("#kontejner").html("");
+            });
+            });
+            let imena = $("#lista1").children();
+            imena.each(function(){
+                $(this).on('mouseover',function(){
+                   $(this).css('color','red'); 
+                });
+                $(this).on('mouseout',function(){
+                   $(this).css('color','black'); 
+                });
+                
+                $(this).on('click', function(){
+                        let gazda=$( this ).parent().get(0).id; 
+                        
+                        if(gazda=="lista1"){
+                            $("#lista2").append(this);
+                        }else{
+                            $("#lista1").append(this);
+                        }
+                        
+                        //$(this).remove();
+                    })
+                });
+            })
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <input type="text" id="tekst" class="form-control" />
+                    <select id="vrsta">
+                        <option value="h1">H1</option>
+                        <option value="h2">H2</option>
+                        <option value="h3">H3</option>
+                    </select>
+                    <button id="napravi">Dodaj</button>
+                    <button id="obrisi">Obriši sve</button>
+                    <div id="kontejner"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    Lista 1 <i class="fas fa-users"></i>
+                    <ul id="lista1">
+                        <li>Pero</li>
+                        <li>Željka</li>
+                        <li>Marina</li>
+                        <li>Leo</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    Lista 2 <i class="fas fa-5x fa-space-shuttle"></i>
+                    <ul id="lista2">
+
+                    </ul>
+                </div>
+                <div class="col-lg-12">
+                    <script>let test={name: "John", age: 31, city: "New York"};</script>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

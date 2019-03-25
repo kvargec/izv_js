@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Player</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="style/stil.css" rel="stylesheet" type="text/css"/>
+        <script src="js/custom.js" type="text/javascript"></script>
+        <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <script>
+            $(document).ready(function(){
+                let popis=$("#popis").children();
+                $("#popis li:first").addClass("active");
+                popis.each(function(){
+                    $(this).on('click',function(){
+                        let naziv=$(this).attr("data-src");
+                        $("#slika").attr("src",naziv);
+                        let temp=$("#popis").find(".active");
+                        temp.removeClass("active");
+                        $(this).addClass("active");
+                    })
+                });
+                $(".fa-fast-forward").on("click",function(){
+                    let temp=$("#popis").find(".active");
+                    temp.removeClass("active");
+                    temp.next().addClass("active");
+                    let naziv=$(temp.next()).attr("data-src");
+                    $("#slika").attr("src",naziv);
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-9">
+                    <div id="player" class="col-lg-12" style="height:600px">
+                        
+                        <img id="slika" src="img/slika (1).jpg" class="img-fluid" title="kava" alt="kava" />
+                    </div>
+                    <div id="kontrole" class="col-lg-12 bg-warning" style="height:100px">
+                        <i class="fas fa-5x fa-fast-backward"></i>&nbsp;
+                        <i class="fas fa-5x fa-stop"></i>&nbsp;
+                        <i class="fas fa-5x fa-play"></i>&nbsp;
+                        <i class="fas fa-5x fa-fast-forward"></i>&nbsp;
+                    </div>
+                </div>
+                <div id="lista" class="col-lg-3 bg-info" style="height:700px">
+                    <ul class="list-group" id="popis">
+                        <li class="list-group-item" data-src="img/slika (1).jpg">Slika 1</li>
+                        <li class="list-group-item" data-src="img/slika (2).jpg">Slika 2</li>
+                        <li class="list-group-item" data-src="img/slika (3).jpg">Slika 3</li>
+                        <li class="list-group-item" data-src="img/slika (4).jpg">Slika 4</li>
+                        <li class="list-group-item" data-src="img/slika (5).jpg">Slika 5</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
